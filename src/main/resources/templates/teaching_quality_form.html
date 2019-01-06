@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/util.js"></script>
+    <script type="text/javascript" src="/js/teaching_quality_form.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<form id="form" class="layui-form">
+    <div class="layui-inline">
+        <label>工号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="userId" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="userName" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>联系电话</label>
+        <div class="layui-input-inline">
+            <input type="text" name="tel" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>所属单位</label>
+        <div class="layui-input-inline">
+            <input type="text" name="subordinateUnit" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>项目</label>
+        <div class="layui-input-inline">
+            <select name="project" lay-verify="">
+                <option value="">项目级别</option>
+                <option value="教学成果奖">教学成果奖</option>
+                <option value="教学优秀奖">教学优秀奖</option>
+                <option value="教学技能竞赛">教学技能竞赛</option>
+                <option value="教材获奖">教材获奖</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>级别</label>
+        <div class="layui-input-inline">
+            <select name="level" lay-verify="">
+                <option value="">级别</option>
+                <option value="国际级">国际级</option>
+                <option value="国家级">国家级</option>
+                <option value="省级">省级</option>
+                <option value="省级">校级</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>等级</label>
+        <div class="layui-input-inline">
+            <select name="awardLevel" lay-verify="">
+                <option value="">获奖等级</option>
+                <option value="特等奖">特等奖</option>
+                <option value="一等奖">一等奖</option>
+                <option value="二等奖">二等奖</option>
+                <option value="三等奖">三等奖</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-inline">
+        <label>获奖名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="awardName" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>获奖时间</label>
+        <div class="layui-input-inline">
+            <input id="awardTime" type="text" name="awardTime" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>获奖文号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="awardNumber" class="layui-input">
+        </div>
+    </div>
+    <div id="inline">
+        <div>
+            <div class="layui-inline">
+                <label>成员工号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="awardUserIdList[]" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label>成员姓名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="awardUserNameList[]" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label>成员单位</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="awardUserUnitList[]" class="layui-input">
+                </div>
+            </div>
+            <a href="javascript:;" onclick="add_inline()"><i class="layui-icon layui-icon-add-1"></i></a>
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>申报绩效</label>
+        <div class="layui-input-inline">
+            <input type="text" name="report" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label>年度</label>
+        <div class="layui-input-inline">
+            <input id="year" type="text" name="year" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">绩效占比</label>
+        <div class="layui-input-block">
+            <textarea name="awardInfo" placeholder="有多位获奖成员的由排名第一获奖人分配，并在此填报包含自己在内的其他教师工号、姓名等信息及占比"
+                      class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">申报备注</label>
+        <div class="layui-input-block">
+            <textarea name="reportNotes" placeholder="申报备注"
+                      class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <button type="button" class="layui-btn" id="upload">佐证材料</button>
+        <table class="layui-table">
+            <tbody id="filelist"></tbody>
+        </table>
+        <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-filter="add" lay-submit="">增加</button>
+    </div>
+</form>
+
+</body>
+</html>
